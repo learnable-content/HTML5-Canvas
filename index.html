@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Illustration</title>
+</head>
+<body>
+    <canvas id="my_canvas" width="200" height="200"></canvas>
+    
+    <script>
+        function drawIllustration(){
+            var myCanvas = 
+                    document.getElementById("my_canvas");
+            var context = myCanvas.getContext("2d");
+            
+            var x=20;
+            var y=80;
+            var width=160;
+            var height=80;
+            
+            var shape1 = new Path2D();
+            shape1.moveTo(x,y);
+            shape1.lineTo(x+width/2, y-height/2);
+            shape1.lineTo(x+width,y);
+            shape1.lineTo(x+width/2, y+height/2);
+            shape1.closePath();
+            
+            var shape2 = new Path2D();
+            shape2.rect(x+20,y-20,width-40,height);
+            
+            var shape3 = new Path2D();
+            shape3.moveTo(x,y);
+            shape3.lineTo(x,y+height);
+            shape3.lineTo(x+width,y+height);
+            shape3.closePath();
+            
+            var shape4 = new Path2D();
+            shape4.moveTo(x+width,y);
+            shape4.lineTo(x+width,y+height);
+            shape4.lineTo(x,y+height);
+            shape4.closePath();
+            
+            context.fillStyle = "#00695c";
+            context.fill(shape1);
+            
+            context.fillStyle = "#FF5722";
+            context.fill(shape2);
+            
+            context.shadowBlur = 5;
+            context.shadowColor = "black";
+            
+            context.fillStyle = "#00796B";            
+            context.fill(shape3);
+            
+            context.fillStyle = "#009688";
+            context.fill(shape4);
+        }
+        
+        drawIllustration();
+    </script>
+</body>
+</html>
